@@ -1,0 +1,18 @@
+.column-left {
+	float: left;
+}
+.column-right {
+	float: left;
+}
+.column-center {
+	display: inline-block;
+}
+.gameDiv {
+	position: absolute;
+	width: 800px;
+	height: 500px;
+	z-index: 15;
+	top: 340px;
+	left: 30%;
+	margin: -100px 0 0 -150px;
+}

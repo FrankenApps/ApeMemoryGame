@@ -1,3 +1,7 @@
+body {
+	background-image: url("/res/site_background.png") !important;	/* override bootstrap background*/
+}
+
 .column-left {
 	float: left;
 }

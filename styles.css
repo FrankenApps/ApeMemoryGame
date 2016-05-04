@@ -9,8 +9,8 @@
 }
 .gameDiv {
 	position: absolute;
-	width: 800px;
-	height: 500px;
+	width: 820px;
+	height: 520px;
 	z-index: 15;
 	top: 340px;
 	left: 30%;

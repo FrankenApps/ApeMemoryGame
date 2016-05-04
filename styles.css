@@ -2,6 +2,8 @@ body {
 	background-image: url("/res/site_background.png") !important;	/* override bootstrap background*/
 }
 
+/* site background not working on gh-pages*/
+
 .column-left {
 	float: left;
 }

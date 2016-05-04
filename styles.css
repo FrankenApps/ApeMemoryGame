@@ -1,5 +1,6 @@
 body {
-	background-image: url("/res/site_background.png") !important;	/* override bootstrap background*/
+	background-image: url("res/site_background.png");
+/* override bootstrap background*/
 }
 
 /* site background working only on gh-pages, otherwise remove ApeMemoryGame*/

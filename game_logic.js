@@ -24,7 +24,7 @@ $(document).ready(function () {
     $("#playground").append(r)
     console.log(i)
   }
-   
+
   //buttons
   $('button').on('click', function (){
     if (this.id === 'close_button') {
@@ -69,5 +69,5 @@ function isNumber (evt) {
 }
 
 function generateNumbers () {
-
+  return Math.floor((Math.random() * 40));
 }

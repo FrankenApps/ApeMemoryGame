@@ -1,8 +1,8 @@
 body {
-	background-image: url("/res/site_background.png") !important;	/* override bootstrap background*/
+	background-image: url("ApeMemoryGame/res/site_background.png") !important;	/* override bootstrap background*/
 }
 
-/* site background not working on gh-pages*/
+/* site background working only on gh-pages, otherwise remove ApeMemoryGame*/
 
 .column-left {
 	float: left;

@@ -3,8 +3,6 @@ body {
 /* override bootstrap background*/
 }
 
-/* site background working only on gh-pages, otherwise remove ApeMemoryGame*/
-
 .column-left {
 	float: left;
 }

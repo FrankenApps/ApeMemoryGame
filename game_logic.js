@@ -19,6 +19,7 @@ $(document).ready(function () {
     $('#playground').css('left', '18%');
     $('#fade_in_input').val('1500');
     $('#fade_in_input').css('margin-left', '3px');
+    $('#time_mode_radio').css('margin-top', '20px');
   }
 
   $('#time_mode_settings').slideDown(400);

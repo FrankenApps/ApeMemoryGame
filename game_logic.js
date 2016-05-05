@@ -3,9 +3,7 @@ var lang = 'en';
 var buttonNumbers = [];
 var usedButtonIndexes = [];
 var isMobile = false;
-
-
-
+var clicks = 0;
 
 $(document).ready(function () {
   // device detection
@@ -21,10 +19,10 @@ $(document).ready(function () {
     $('#fade_in_input').css('margin-left', '3px');
     $('#time_mode_radio').css('margin-top', '8px');
     $('#time_mode_settings').css('margin-bottom', '4px');
-    $('close_button').css('height', '15%');
-    $('close_button').css('width', '20%');
-    $('start_game_button').css('height', '15%');
-    $('start_game_button').css('width', '20%');
+    $('#close_button').css('height', '80px');
+    $('#close_button').css('width', '140px');
+    $('#start_game_button').css('height', '80px');
+    $('#start_game_button').css('width', '80px');
   }
 
   $('#time_mode_settings').slideDown(400);
@@ -40,7 +38,7 @@ $(document).ready(function () {
       timeMode = false;
       $('#time_mode_settings').slideUp(400);
     }
-  })
+  });
 
   // create the game field buttons
   for (var i = 0; i < 40; i++) {
@@ -57,14 +55,18 @@ $(document).ready(function () {
       startTheGame();
     }
     else {
+        clicks = clicks + 1;
+        if(clicks === 1){
+          hideDigits();
+        }
         $('#' + String(this.id)).css('background-color', '#000000');
         $('#' + String(this.id)).prop('disabled', 'true');
+        checkCorrectOrder($('#' + String(this.id)).html());
       }
-    })
-  })
+    });
+  });
 
   function startTheGame() {
-    if(timeMode){
       if ($('#fade_in_input').val()<1 || $('fade_out_input').val()<1) {
         showInputErrorWarning();
       }
@@ -74,10 +76,6 @@ $(document).ready(function () {
         }, $('#fade_in_input').val());
 
       }
-    }
-    else {
-
-    }
   }
 
 function showInputErrorWarning () {
@@ -116,27 +114,36 @@ function initializeButtons () {
   for (var i = 0; i < buttonNumbers.length; i++) {
     var number = Math.floor((Math.random() * 40));
     if(usedButtonIndexes.indexOf(number) === -1){
-    usedButtonIndexes[i] = number;
-  }
-  else {
-    i = i-1;
-  }
+      usedButtonIndexes[i] = number;
+    }
+    else {
+      i = i-1;
+    }
   }
   for (var i = 0; i < buttonNumbers.length; i++) {
     $('#gameButton' + String(usedButtonIndexes[i])).html(buttonNumbers[i]);
   }
   for (var c = 0; c < 40; c++) {
     if (!$('#gameButton' + String(c)).text().trim().length) {
-        $('#gameButton' + String(c)).prop('disabled', 'true');
+      $('#gameButton' + String(c)).prop('disabled', 'true');
     }
   }
-  setTimeout(function(){
-    hideDigits();
-  }, $('#fade_out_input').val());
+  if(timeMode){
+    setTimeout(function(){
+      hideDigits();
+    }, $('#fade_out_input').val());
+  }
+  else {
+    // let the hideDigits function be called from button click.
+  }
 }
 
 function hideDigits () {
   for (var i = 0; i < buttonNumbers.length; i++) {
     $('#gameButton' + String(usedButtonIndexes[i])).css('background-color', '#ffffff');
   }
+}
+
+function checkCorrectOrder (buttonDigit){
+  console.log(buttonDigit);
 }

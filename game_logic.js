@@ -20,7 +20,7 @@ $(document).ready(function () {
     $('#fade_in_input').val('1500');
     $('#fade_in_input').css('margin-left', '3px');
     $('#time_mode_radio').css('margin-top', '8px');
-    $('fade_in_input').css('margin-left', '2000px');
+    $('fade_in_input_label').html('Time for Fade-In:  ')
     $('#time_mode_settings').css('margin-bottom', '4px');
   }
 

@@ -16,7 +16,7 @@ $(document).ready(function () {
 
   if(isMobile){
     //make playground smaller
-    $('#playground').css('left', '15%');
+    $('#playground').css('left', '18%');
 
   }
 

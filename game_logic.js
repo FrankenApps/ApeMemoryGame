@@ -21,10 +21,10 @@ $(document).ready(function () {
     $('#fade_in_input').css('margin-left', '3px');
     $('#time_mode_radio').css('margin-top', '8px');
     $('#time_mode_settings').css('margin-bottom', '4px');
-    $('close_button').css('height', '120px');
-    $('close_button').css('width', '180px');
-    $('start_game_button').css('height', '120px');
-    $('start_game_button').css('width', '180px');
+    $('close_button').css('height', '15%');
+    $('close_button').css('width', '20%');
+    $('start_game_button').css('height', '15%');
+    $('start_game_button').css('width', '20%');
   }
 
   $('#time_mode_settings').slideDown(400);

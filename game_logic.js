@@ -16,15 +16,8 @@ $(document).ready(function () {
 
   if(isMobile){
     //make playground smaller
-    $('#playground').css('height', '270');
-    $('#playground').css('width', '420');
-    $('#playground').css('left', '10%');
+    $('#playground').css('left', '15%');
 
-    // create the game field buttons for mobile
-    for (var i = 0; i < 40; i++) {
-      var r = $('<div style="float: left" id="'+ "buttondiv"+ String(i) +'"><button style="width: 50px; height: 50px; background-color: #000000; color: #ffffff; font-size : 30px; border:none;" id="' + "gameButton" + String(i)+'"></button>' + '</div>');
-      $("#playground").append(r);
-    }
   }
 
   $('#time_mode_settings').slideDown(400);
@@ -42,13 +35,11 @@ $(document).ready(function () {
     }
   })
 
-  if(!isMobile){
   // create the game field buttons
   for (var i = 0; i < 40; i++) {
     var r = $('<div style="float: left" id="'+ "buttondiv"+ String(i) +'"><button style="width: 100px; height: 100px; background-color: #000000; color: #ffffff; font-size : 60px; border:none;" id="' + "gameButton" + String(i)+'"></button>' + '</div>');
     $("#playground").append(r);
   }
-}
 
   //buttons
   $('button').on('click', function (){

@@ -15,6 +15,7 @@ $(document).ready(function () {
   if(isMobile){
     //make playground smaller
     $('#playground').css('left', '18%');
+    $('#playground').css('top', '420px');
     $('#fade_in_input').val('1500');
     $('#fade_in_input').css('margin-left', '3px');
     $('#time_mode_radio').css('margin-top', '8px');
@@ -22,7 +23,7 @@ $(document).ready(function () {
     $('#close_button').css('height', '80px');
     $('#close_button').css('width', '140px');
     $('#start_game_button').css('height', '80px');
-    $('#start_game_button').css('width', '80px');
+    $('#start_game_button').css('width', '140px');
   }
 
   $('#time_mode_settings').slideDown(400);

@@ -13,7 +13,7 @@ $(document).ready(function () {
       }
 
   if(isMobile){
-    //make playground smaller
+    //make start button bigger, to better be able to touch it on small screen.
     $('#playground').css('left', '18%');
     $('#playground').css('top', '420px');
     $('#fade_in_input').val('1500');
@@ -24,6 +24,8 @@ $(document).ready(function () {
     $('#close_button').css('width', '140px');
     $('#start_game_button').css('height', '80px');
     $('#start_game_button').css('width', '140px');
+    $('#start_game_button').css('font-size', '20px');
+
   }
 
   $('#time_mode_settings').slideDown(400);

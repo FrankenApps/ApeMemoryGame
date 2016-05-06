@@ -24,7 +24,8 @@ $(document).ready(function () {
     $('#close_button').css('width', '140px');
     $('#start_game_button').css('height', '80px');
     $('#start_game_button').css('width', '140px');
-    $('#start_game_button').css('font-size', '20px');
+    $('#start_game_button').css('font-size', '25px');
+    $('#close_button').css('font-size', '25px');
 
   }
 

@@ -193,8 +193,9 @@ function showDialog (title_text, message, option1, option2) {
         resetGame();
         $(this).remove();
       },
-      dialogClass: 'won-dialog'
+      dialogClass: "dialog",
 });
+$(".dialog .ui-dialog-titlebar").css("background-color", "#ff0000");
 }
 
 function restartGame () {

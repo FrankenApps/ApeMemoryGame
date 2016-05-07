@@ -167,25 +167,50 @@ function lost_restart (){
     $('#gameButton' + String(i)).css('background-color', '#000000');
     $('#gameButton' + String(i)).prop('disabled', 'true');
   }
-  alert("Wrong order, restart?");
-  for (var f = 0; f < 40; f++) {
-    $('#gameButton' + String(f)).css('background-color', '#000000');
-    $('#gameButton' + String(f)).prop('disabled', 'false');
-    console.log("Button state (still true, why?): " + $('#gameButton' + String(f)).prop('disabled'));
-    $('#gameButton' + String(f)).html('');
+  if(lang === 'en'){
+    showDialog('You lost.', 'Do you want to play again?', 'Yes', 'No');
   }
-  clicks = 0;
-
 }
 
 function won () {
-  alert('You won. Play again?');
-  for (var i = 0; i < 40; i++) {
-    $('#gameButton' + String(i)).css('background-color', '#000000');
-    $('#gameButton' + String(i)).prop('disabled', 'false');
-    console.log("Button state (still true, why?): " + $('#gameButton' + String(i)).prop('disabled'));
-    $('#gameButton' + String(i)).html('');
+  if(lang === 'en'){
+    showDialog('You won.', 'Do you want to play again?', 'Yes', 'No');
+  }
+}
+
+function showDialog (title_text, message, option1, option2) {
+  var btnNames = {};
+    btnNames[option1] = function(){ restartGame (); $(this).dialog('close'); };
+    btnNames[option2] = function(){ resetGame(); $(this).dialog('close'); };
+
+  $('<div></div>').appendTo('body')
+  .html('<div><h6>' + message + '</h6></div>')
+  .dialog({
+      modal: true, title: title_text, zIndex: 10000, autoOpen: true,
+      width: 'auto', resizable: true,
+      buttons: btnNames,
+      close: function (event, ui) {
+          $(this).remove();
+      },
+      dialogClass: 'won-dialog'
+});
+}
+
+function restartGame () {
+  for (var f = 0; f < 40; f++) {
+    $('#gameButton' + String(f)).css('background-color', '#000000');
+    $('#gameButton' + String(f)).removeAttr("disabled");
+    $('#gameButton' + String(f)).html('');
   }
   clicks = 0;
+  startTheGame();
+}
 
+function resetGame () {
+  for (var f = 0; f < 40; f++) {
+    $('#gameButton' + String(f)).css('background-color', '#000000');
+    $('#gameButton' + String(f)).removeAttr("disabled");
+    $('#gameButton' + String(f)).html('');
+  }
+  clicks = 0;
 }

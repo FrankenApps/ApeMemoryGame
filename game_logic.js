@@ -149,5 +149,43 @@ function hideDigits () {
 }
 
 function checkCorrectOrder (buttonDigit){
-  console.log(buttonDigit);
+  buttonNumbers.sort(function(a, b){return b-a});
+  if(buttonDigit == buttonNumbers[buttonNumbers.length-1]){
+    buttonNumbers.pop();
+    console.log(buttonNumbers[buttonNumbers.length-1]);
+    if(buttonNumbers.length == 0){
+      won();
+    }
+  }
+  else {
+    lost_restart();
+  }
+}
+
+function lost_restart (){
+  for (var i = 0; i < 40; i++) {
+    $('#gameButton' + String(i)).css('background-color', '#000000');
+    $('#gameButton' + String(i)).prop('disabled', 'true');
+  }
+  alert("Wrong order, restart?");
+  for (var f = 0; f < 40; f++) {
+    $('#gameButton' + String(f)).css('background-color', '#000000');
+    $('#gameButton' + String(f)).prop('disabled', 'false');
+    console.log("Button state (still true, why?): " + $('#gameButton' + String(f)).prop('disabled'));
+    $('#gameButton' + String(f)).html('');
+  }
+  clicks = 0;
+
+}
+
+function won () {
+  alert('You won. Play again?');
+  for (var i = 0; i < 40; i++) {
+    $('#gameButton' + String(i)).css('background-color', '#000000');
+    $('#gameButton' + String(i)).prop('disabled', 'false');
+    console.log("Button state (still true, why?): " + $('#gameButton' + String(i)).prop('disabled'));
+    $('#gameButton' + String(i)).html('');
+  }
+  clicks = 0;
+
 }

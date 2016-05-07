@@ -190,7 +190,8 @@ function showDialog (title_text, message, option1, option2) {
       width: 'auto', resizable: true,
       buttons: btnNames,
       close: function (event, ui) {
-          $(this).remove();
+        resetGame();
+        $(this).remove();
       },
       dialogClass: 'won-dialog'
 });

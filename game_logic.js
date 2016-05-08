@@ -8,6 +8,16 @@ var wonGames = 0;
 var lostGames = 0;
 
 $(document).ready(function () {
+  // load selected language
+  if(localStorage.getItem("lang") != null){
+    if(localStorage.getItem("lang") == "de"){
+      lang_de();
+    }
+    else if (localStorage.getItem("lang") == "en") {
+      lang_en();
+    }
+  }
+
   $('#start_game_button').removeAttr('disabled');
   $('#fade_in_input').removeAttr('disabled');
   $('#fade_out_input').removeAttr('disabled');
@@ -58,6 +68,10 @@ $(document).ready(function () {
     $("#playground").append(r);
   }
 
+  for (var f = 0; f < 40; f++) {
+    $('#gameButton' + String(f)).prop('disabled', 'true');
+  }
+
   //buttons
   $('button').on('click', function (){
     if (this.id === 'close_button') {
@@ -65,6 +79,12 @@ $(document).ready(function () {
     }
     else if (this.id === 'start_game_button') {
       startTheGame();
+    }
+    else if (this.id === 'lang_en') {
+      lang_en();
+    }
+    else if (this.id === 'lang_de') {
+      lang_de();
     }
     else {
         clicks++;
@@ -101,7 +121,8 @@ $(document).ready(function () {
 function showInputErrorWarning () {
   if (lang === 'en') {
     window.alert('You have to enter a numeric value in both text fields.');
-  }else if (lang === 'de') {
+  }
+  else if (lang === 'de') {
     window.alert('Sie müssen eine Zahl in beide Textfelder eingeben.');
   }
 }
@@ -125,6 +146,9 @@ function generateNumbers () {
   else {
     i--;
   }
+  }
+  for (var f = 0; f < 40; f++) {
+    $('#gameButton' + String(f)).removeAttr('disabled');
   }
   initializeButtons();
 }
@@ -188,6 +212,10 @@ function lost (){
     $("#lost_games_label").html("Lost Games: " + String(lostGames));
     showDialog('You lost.', 'Do you want to play again?', 'Yes', 'No');
   }
+  else if (lang === 'de') {
+    showDialog('Verloren.', 'Möchten sie erneut spielen?', 'Ja', 'Nein');
+    $("#lost_games_label").html("Verloren: " + String(lostGames));
+  }
 }
 
 function won () {
@@ -195,6 +223,10 @@ function won () {
   if(lang === 'en'){
     showDialog('You won.', 'Do you want to play again?', 'Yes', 'No');
     $("#won_games_label").html("Won Games: " + String(wonGames));
+  }
+  else if (lang === 'de') {
+    showDialog('Gewonnen.', 'Möchten sie erneut spielen?', 'Ja', 'Nein');
+    $("#won_games_label").html("Gewonnen: " + String(wonGames));
   }
 }
 
@@ -244,8 +276,41 @@ function restartGame () {
 function resetGame () {
   for (var f = 0; f < 40; f++) {
     $('#gameButton' + String(f)).css('background-color', '#000000');
-    $('#gameButton' + String(f)).removeAttr("disabled");
     $('#gameButton' + String(f)).html('');
   }
   clicks = 0;
+}
+
+function lang_en () {
+  lang = 'en';
+  $("#won_games_label").html('Won Games: ' + String(wonGames));
+  $("#lost_games_label").html('Lost Games: ' + String(lostGames));
+  $('#start_game_button').html('Start');
+  $('#displayed_numbers_label').html('How many Numbers: ');
+  $('#fade_in_input_label').html('Time for Fade-In: ');
+  $('#fade_out_input_label').html('Time for Fade-Out: ');
+  $('#close_button').val('Close');
+  $('#close_button').css('width', '70px');
+  $('#fade_in_input').css('margin-left', '17px');
+  $('h3').html("Settings");
+  saveLang(lang);
+}
+
+function lang_de () {
+  lang = 'de';
+  $("#won_games_label").html('Gewonnen: ' + String(wonGames));
+  $("#lost_games_label").html('Verloren: ' + String(lostGames));
+  $('#start_game_button').html('Start');
+  $('#displayed_numbers_label').html('Wie viele Zahlen: ');
+  $('#fade_in_input_label').html('Einblendzeit: ');
+  $('#fade_out_input_label').html('Ausblendzeit: ');
+  $('#close_button').val('Schliessen');
+  $('#close_button').css('width', '85px');
+  $('#fade_in_input').css('margin-left', '9px');
+  $('h3').html("Einstellungen");
+  saveLang(lang);
+}
+
+function saveLang(language){
+  localStorage.setItem("lang", language);
 }

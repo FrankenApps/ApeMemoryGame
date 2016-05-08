@@ -93,7 +93,8 @@ $(document).ready(function () {
         }
         $('#' + String(this.id)).css('background-color', '#000000');
         $('#' + String(this.id)).prop('disabled', 'true');
-        checkCorrectOrder($('#' + String(this.id)).html());
+        $('#' + String(this.id)).css('font-size', '0px');
+        checkCorrectOrder($('#' + String(this.id)).html());  
       }
     });
   });
@@ -207,6 +208,7 @@ function lost (){
   for (var i = 0; i < 40; i++) {
     $('#gameButton' + String(i)).css('background-color', '#000000');
     $('#gameButton' + String(i)).prop('disabled', 'true');
+    $('#gameButton' + String(i)).css('font-size', '60px');
   }
   if(lang === 'en'){
     $("#lost_games_label").html("Lost Games: " + String(lostGames));
@@ -220,6 +222,9 @@ function lost (){
 
 function won () {
   wonGames++;
+  for (var i = 0; i < 40; i++) {
+    $('#gameButton' + String(i)).css('font-size', '60px');
+  }
   if(lang === 'en'){
     showDialog('You won.', 'Do you want to play again?', 'Yes', 'No');
     $("#won_games_label").html("Won Games: " + String(wonGames));

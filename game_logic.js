@@ -200,7 +200,7 @@ function won () {
 
 function showDialog (title_text, message, option1, option2) {
   var btnNames = {};
-    btnNames[option1] = function(){ restartGame (); $(this).dialog('close');};
+    btnNames[option1] = function(){ restartGame (); $(this).dialog('close'); };
     btnNames[option2] = function(){ resetGame(); $(this).dialog('close'); };
 
   $('<div></div>').appendTo('body')
@@ -213,6 +213,11 @@ function showDialog (title_text, message, option1, option2) {
         resetGame();
         $(this).remove();},
       dialogClass: "dialog",
+      create:function () {
+        $(this).closest(".ui-dialog").find(".ui-button:first").addClass("custom");
+        $(this).closest(".ui-dialog").find('button:contains("' + option1 + '")').addClass('yes_option');
+        $(this).closest(".ui-dialog").find('button:contains("' + option2 + '")').addClass('no_option');
+    }
 });
  $(".ui-dialog-titlebar").removeClass("ui-widget-header");
 $(".dialog .ui-dialog-titlebar").css("background-color", "#FFDB0D");

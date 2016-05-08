@@ -67,7 +67,7 @@ $(document).ready(function () {
       startTheGame();
     }
     else {
-        clicks = clicks + 1;
+        clicks++;
         if(clicks === 1){
           hideDigits();
         }
@@ -123,7 +123,7 @@ function generateNumbers () {
     buttonNumbers[i] = number;
   }
   else {
-    i = i-1;
+    i--;
   }
   }
   initializeButtons();
@@ -137,7 +137,7 @@ function initializeButtons () {
       usedButtonIndexes[i] = number;
     }
     else {
-      i = i-1;
+      i--;
     }
   }
   for (var i = 0; i < buttonNumbers.length; i++) {
@@ -179,7 +179,7 @@ function checkCorrectOrder (buttonDigit){
 }
 
 function lost (){
-  lostGames = lostGames + 1;
+  lostGames++;
   for (var i = 0; i < 40; i++) {
     $('#gameButton' + String(i)).css('background-color', '#000000');
     $('#gameButton' + String(i)).prop('disabled', 'true');
@@ -191,7 +191,7 @@ function lost (){
 }
 
 function won () {
-  wonGames = wonGames + 1;
+  wonGames++;
   if(lang === 'en'){
     showDialog('You won.', 'Do you want to play again?', 'Yes', 'No');
     $("#won_games_label").html("Won Games: " + String(wonGames));

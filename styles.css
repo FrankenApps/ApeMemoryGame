@@ -34,10 +34,11 @@ body {
 
 /* style for mobile dialog */
 
-.ui-dialog button.custom_mobile { background: #ff0000; }
+
+.ui-dialog button.custom_mobile { background: #ff0000; font-size: 40px;}
 .ui-dialog button.custom_mobile:active { background: #FCBDD0; }
-.ui-dialog button.yes_option_mobile { background: #00ff00; font-size: 30px;}
-.ui-dialog button.no_option_mobile { background: #ff9199; font-size: 30px;}
+.ui-dialog button.yes_option_mobile { background: #00ff00; font-size: 40px;}
+.ui-dialog button.no_option_mobile { background: #ff9199; font-size: 40px;}
 .ui-dialog button.no_option_mobile:active { background-color: #0000ff; }
 .ui-dialog button.yes_option_mobile:active { background-color: #0000ff; }
 

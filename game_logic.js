@@ -94,7 +94,7 @@ $(document).ready(function () {
         $('#' + String(this.id)).css('background-color', '#000000');
         $('#' + String(this.id)).prop('disabled', 'true');
         $('#' + String(this.id)).css('font-size', '0px');
-        checkCorrectOrder($('#' + String(this.id)).html());  
+        checkCorrectOrder($('#' + String(this.id)).html());
       }
     });
   });
@@ -294,10 +294,22 @@ function lang_en () {
   $('#displayed_numbers_label').html('How many Numbers: ');
   $('#fade_in_input_label').html('Time for Fade-In: ');
   $('#fade_out_input_label').html('Time for Fade-Out: ');
+  $('#time_mode_radio_label').html('Time-Mode');
+  $('#click_mode_radio_label').html('Click-Mode');
   $('#close_button').val('Close');
   $('#close_button').css('width', '70px');
   $('#fade_in_input').css('margin-left', '17px');
   $('h3').html("Settings");
+  //changing tooltips
+  $('#close_button').prop('title', 'Go back to my Github page.');
+  $('#start_game_button').prop('title', 'Start the Game.');
+  $('#fade_in_input').prop('title', 'Time for fade-in. This is in order for your eyes to concentrate on the game screen after hitting the start button. Default value should be fine.');
+  $('#fade_out_input').prop('title', 'Time for fade-out. E.g. how long you can see the numbers until they get hidden. During this time you can not click any numbers.');
+  $('#displayed_numbers_picker').prop('title', 'How many digits can you remember?');
+  $('#click_mode_radio').prop('title', 'In click-mode the digits will be hidden after you clicked the first digit.');
+  $('#time_mode_radio').prop('title', 'In time-mode the digits will be auto-hidden after the selected fade-out time.');
+  $('#click_mode_radio_label').prop('title', 'In click-mode the digits will be hidden after you clicked the first digit.');
+  $('#time_mode_radio_label').prop('title', 'In time-mode the digits will be auto-hidden after the selected fade-out time.');
   saveLang(lang);
 }
 
@@ -309,10 +321,22 @@ function lang_de () {
   $('#displayed_numbers_label').html('Wie viele Zahlen: ');
   $('#fade_in_input_label').html('Einblendzeit: ');
   $('#fade_out_input_label').html('Ausblendzeit: ');
+  $('#time_mode_radio_label').html('Zeit-Modus');
+  $('#click_mode_radio_label').html('Klick-Modus');
   $('#close_button').val('Schliessen');
   $('#close_button').css('width', '85px');
   $('#fade_in_input').css('margin-left', '9px');
   $('h3').html("Einstellungen");
+  //changing tooltips
+  $('#close_button').prop('title', 'Zurück zur Github Seite.');
+  $('#start_game_button').prop('title', 'Spiel starten.');
+  $('#fade_in_input').prop('title', 'Die Einblendzeit ist die Zeit bis die Zahlen nach drücken des Start Knopfes auf dem Bildschirm auftauchen und dient dazu, dass sich die Augen auf das Spielfeld konzentrieren können. Der Standardwert sollte ausreichen.');
+  $('#fade_out_input').prop('title', 'Die Ausblendzeit gibt an wie lange die Zahlen auf dem Bildschirm auftauchen, bis sie automatisch verdeckt werden. In dieser Zeit können sie noch keine Zahlen anklicken.');
+  $('#displayed_numbers_picker').prop('title', 'Anzahl der Ziffern die man sich merken muss.');
+  $('#click_mode_radio').prop('title', 'Beim Klick-Modus werden die Zahlen erst nach auswählen der ersten Zahl verdeckt.');
+  $('#time_mode_radio').prop('title', 'Im Zeit-Modus werden die Zahlen nach Ablauf der Ausblendzeit automatisch verdeckt.');
+  $('#click_mode_radio_label').prop('title', 'Beim Klick-Modus werden die Zahlen erst nach auswählen der ersten Zahl verdeckt.');
+  $('#time_mode_radio_label').prop('title', 'Im Zeit-Modus werden die Zahlen nach Ablauf der Ausblendzeit automatisch verdeckt.');
   saveLang(lang);
 }
 

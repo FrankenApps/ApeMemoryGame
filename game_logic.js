@@ -44,7 +44,8 @@ $(document).ready(function () {
     $('#start_game_button').css('width', '140px');
     $('#start_game_button').css('font-size', '25px');
     $('#close_button').css('font-size', '25px');
-
+    $('#won_games_label').css('font-size', '17px');
+    $('#lost_games_label').css('font-size', '17px');
   }
 
   $('#time_mode_settings').slideDown(400);

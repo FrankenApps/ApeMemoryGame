@@ -257,7 +257,6 @@ if(isMobile){
         $(this).closest(".ui-dialog").find('button:contains("' + option2 + '")').addClass('no_option_mobile');
     }
   });
-  document.getElementByClassName("ui-dialog").style.font = "30px";
 }
 else {
   $('<div></div>').appendTo('body')

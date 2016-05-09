@@ -32,6 +32,15 @@ body {
 .ui-dialog button.yes_option:hover { background-color: #84DE10; }
 .ui-dialog button.no_option:hover {background-color: #F5B1AE;}
 
+/* style for mobile dialog */
+
+.ui-dialog button.custom_mobile { background: #ff0000; }
+.ui-dialog button.custom_mobile:active { background: #FCBDD0; }
+.ui-dialog button.yes_option_mobile { background: #00ff00; font-size: 30px;}
+.ui-dialog button.no_option_mobile { background: #ff9199; font-size: 30px;}
+.ui-dialog button.no_option_mobile:active { background-color: #0000ff; }
+.ui-dialog button.yes_option_mobile:active { background-color: #0000ff; }
+
 /* style for language buttons */
 #lang_en {
     width: 36px;

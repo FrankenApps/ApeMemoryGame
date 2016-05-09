@@ -251,10 +251,18 @@ function showDialog (title_text, message, option1, option2) {
         $(this).remove();},
       dialogClass: "dialog",
       create:function () {
+        if(isMobile){
+          $(this).closest(".ui-dialog").find(".ui-button:first").addClass("custom_mobile");
+          $(this).closest(".ui-dialog").find('button:contains("' + option1 + '")').addClass('yes_option_mobile');
+          $(this).closest(".ui-dialog").find('button:contains("' + option2 + '")').addClass('no_option_mobile');
+      }
+      else {
         $(this).closest(".ui-dialog").find(".ui-button:first").addClass("custom");
         $(this).closest(".ui-dialog").find('button:contains("' + option1 + '")').addClass('yes_option');
         $(this).closest(".ui-dialog").find('button:contains("' + option2 + '")').addClass('no_option');
+      }
     }
+
 });
  $(".ui-dialog-titlebar").removeClass("ui-widget-header");
 $(".dialog .ui-dialog-titlebar").css("background-color", "#FFDB0D");

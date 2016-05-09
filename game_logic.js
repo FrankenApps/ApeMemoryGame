@@ -240,8 +240,9 @@ function showDialog (title_text, message, option1, option2) {
     btnNames[option1] = function(){ restartGame (); $(this).dialog('close'); };
     btnNames[option2] = function(){ resetGame(); $(this).dialog('close'); };
 
+if(isMobile){
   $('<div></div>').appendTo('body')
-  .html('<div><h6>' + message + '</h6></div>')
+  .html('<div><h1>' + message + '</h1></div>')
   .dialog({
       modal: true, title: title_text, zIndex: 10000, autoOpen: true,
       width: 'auto', resizable: true,
@@ -251,19 +252,32 @@ function showDialog (title_text, message, option1, option2) {
         $(this).remove();},
       dialogClass: "dialog",
       create:function () {
-        if(isMobile){
-          $(this).closest(".ui-dialog").find(".ui-button:first").addClass("custom_mobile");
-          $(this).closest(".ui-dialog").find('button:contains("' + option1 + '")').addClass('yes_option_mobile');
-          $(this).closest(".ui-dialog").find('button:contains("' + option2 + '")').addClass('no_option_mobile');
-      }
-      else {
+        $(this).closest(".ui-dialog").find(".ui-button:first").addClass("custom_mobile");
+        $(this).closest(".ui-dialog").find('button:contains("' + option1 + '")').addClass('yes_option_mobile');
+        $(this).closest(".ui-dialog").find('button:contains("' + option2 + '")').addClass('no_option_mobile');
+    }
+
+  });
+}
+else {
+  $('<div></div>').appendTo('body')
+  .html('<div><h5>' + message + '</h5></div>')
+  .dialog({
+      modal: true, title: title_text, zIndex: 10000, autoOpen: true,
+      width: 'auto', resizable: true,
+      buttons: btnNames,
+      close: function (event, ui) {
+        resetGame();
+        $(this).remove();},
+      dialogClass: "dialog",
+      create:function () {
         $(this).closest(".ui-dialog").find(".ui-button:first").addClass("custom");
         $(this).closest(".ui-dialog").find('button:contains("' + option1 + '")').addClass('yes_option');
         $(this).closest(".ui-dialog").find('button:contains("' + option2 + '")').addClass('no_option');
-      }
     }
 
 });
+}
  $(".ui-dialog-titlebar").removeClass("ui-widget-header");
 $(".dialog .ui-dialog-titlebar").css("background-color", "#FFDB0D");
 

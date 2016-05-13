@@ -113,9 +113,15 @@ $(document).ready(function () {
         $('#time_mode_radio').prop('disabled', 'true');
         $('#click_mode_radio').prop('disabled', 'true');
 
-        setTimeout(function(){
+        if(timeMode== false){
           generateNumbers();
-        }, $('#fade_in_input').val());
+        }
+        else {
+          setTimeout(function(){
+            generateNumbers();
+          }, $('#fade_in_input').val());
+        }
+
 
       }
   }

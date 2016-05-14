@@ -113,8 +113,10 @@ $(document).ready(function () {
         $('#time_mode_radio').prop('disabled', 'true');
         $('#click_mode_radio').prop('disabled', 'true');
 
-        if(timeMode== false){
-          generateNumbers();
+        if(timeMode == false){
+          setTimeout(function(){
+            generateNumbers();
+          }, 0);
         }
         else {
           setTimeout(function(){
@@ -297,10 +299,9 @@ $('#click_mode_radio').removeAttr('disabled');
 }
 
 function restartGame () {
-  for (var f = 0; f < 40; f++) {
-    $('#gameButton' + String(f)).css('background-color', '#000000');
-    $('#gameButton' + String(f)).removeAttr("disabled");
-    $('#gameButton' + String(f)).html('');
+  for (var g = 0; g < 40; g++) {
+    $('#gameButton' + String(g)).css('background-color', '#000000');
+    $('#gameButton' + String(g)).html('');
   }
   clicks = 0;
   startTheGame();

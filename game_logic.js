@@ -177,11 +177,18 @@ function initializeButtons () {
   for (var i = 0; i < buttonNumbers.length; i++) {
     $('#gameButton' + String(usedButtonIndexes[i])).html(buttonNumbers[i]);
   }
+  if(timeMode){
+  for (var c = 0; c < 40; c++) {
+      $('#gameButton' + String(c)).prop('disabled', 'true');
+  }
+}
+else {
   for (var c = 0; c < 40; c++) {
     if (!$('#gameButton' + String(c)).text().trim().length) {
       $('#gameButton' + String(c)).prop('disabled', 'true');
     }
   }
+}
   if(timeMode){
     setTimeout(function(){
       hideDigits();
@@ -193,6 +200,13 @@ function initializeButtons () {
 }
 
 function hideDigits () {
+  // Fix Issue #4
+  for (var c = 0; c < 40; c++) {
+    if ($('#gameButton' + String(c)).text().trim().length) {
+      $('#gameButton' + String(c)).removeAttr('disabled');
+    }
+  }
+
   for (var i = 0; i < buttonNumbers.length; i++) {
     $('#gameButton' + String(usedButtonIndexes[i])).css('background-color', '#ffffff');
   }

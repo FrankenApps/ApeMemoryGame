@@ -413,11 +413,21 @@ function saveLang(language){
 
 function setQuota (){
   if(lang ==='de'){
-    $('#lost_quota_label').html(`<b>Quote: ${Math.round((lostGames/(wonGames+lostGames)*100)*100)/100}%</b>`);
-    $('#won_quota_label').html(`<b>Quote: ${Math.round((wonGames/(wonGames+lostGames)*100)*100)/100}%</b>`);
+    if(wonGames + lostGames === 0){
+      $('#lost_quota_label').html(`<b>Quote: 0%</b>`);
+      $('#won_quota_label').html(`<b>Quote: 0%</b>`);
+    } else {
+      $('#lost_quota_label').html(`<b>Quote: ${Math.round((lostGames/(wonGames+lostGames)*100)*100)/100}%</b>`);
+      $('#won_quota_label').html(`<b>Quote: ${Math.round((wonGames/(wonGames+lostGames)*100)*100)/100}%</b>`);
+    }
   }
   else {
+    if(wonGames + lostGames === 0){
+      $('#lost_quota_label').html(`<b>Quota: 0%</b>`);
+      $('#won_quota_label').html(`<b>Quota: 0%</b>`);
+    } else {
     $('#lost_quota_label').html(`<b>Quota: ${Math.round((lostGames/(wonGames+lostGames)*100)*100)/100}%</b>`);
     $('#won_quota_label').html(`<b>Quota: ${Math.round((wonGames/(wonGames+lostGames)*100)*100)/100}%</b>`);
+  }
   }
 }

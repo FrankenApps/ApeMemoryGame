@@ -355,6 +355,8 @@ function lang_en () {
   $('#time_mode_radio').prop('title', 'In time-mode the digits will be auto-hidden after the selected fade-out time.');
   $('#click_mode_radio_label').prop('title', 'In click-mode the digits will be hidden after you clicked the first digit.');
   $('#time_mode_radio_label').prop('title', 'In time-mode the digits will be auto-hidden after the selected fade-out time.');
+  $('#lost_quota_label').prop('title', 'This is the quota of games you lost in Percent.');
+  $('#won_quota_label').prop('title', 'This is the quota of games you won in Percent.');
   setQuota();
 
   //try to fix mobile issue
@@ -391,6 +393,8 @@ function lang_de () {
   $('#time_mode_radio').prop('title', 'Im Zeit-Modus werden die Zahlen nach Ablauf der Ausblendzeit automatisch verdeckt.');
   $('#click_mode_radio_label').prop('title', 'Beim Klick-Modus werden die Zahlen erst nach auswählen der ersten Zahl verdeckt.');
   $('#time_mode_radio_label').prop('title', 'Im Zeit-Modus werden die Zahlen nach Ablauf der Ausblendzeit automatisch verdeckt.');
+  $('#lost_quota_label').prop('title', 'Dies ist die Quote der Spiele die Sie verloren haben in Prozent.');
+  $('#won_quota_label').prop('title', 'Dies ist die Quote der Spiele die Sie gewonnen haben in Prozent.');
   setQuota();
 
   //try to fix mobile issue

@@ -228,6 +228,7 @@ function checkCorrectOrder (buttonDigit){
 
 function lost (){
   lostGames++;
+  setQuota();
   for (var i = 0; i < 40; i++) {
     $('#gameButton' + String(i)).css('background-color', '#000000');
     $('#gameButton' + String(i)).prop('disabled', 'true');
@@ -245,6 +246,7 @@ function lost (){
 
 function won () {
   wonGames++;
+  setQuota();
   for (var i = 0; i < 40; i++) {
     $('#gameButton' + String(i)).css('font-size', '60px');
   }
@@ -353,6 +355,7 @@ function lang_en () {
   $('#time_mode_radio').prop('title', 'In time-mode the digits will be auto-hidden after the selected fade-out time.');
   $('#click_mode_radio_label').prop('title', 'In click-mode the digits will be hidden after you clicked the first digit.');
   $('#time_mode_radio_label').prop('title', 'In time-mode the digits will be auto-hidden after the selected fade-out time.');
+  setQuota();
 
   //try to fix mobile issue
   if(isMobile){
@@ -388,6 +391,7 @@ function lang_de () {
   $('#time_mode_radio').prop('title', 'Im Zeit-Modus werden die Zahlen nach Ablauf der Ausblendzeit automatisch verdeckt.');
   $('#click_mode_radio_label').prop('title', 'Beim Klick-Modus werden die Zahlen erst nach auswählen der ersten Zahl verdeckt.');
   $('#time_mode_radio_label').prop('title', 'Im Zeit-Modus werden die Zahlen nach Ablauf der Ausblendzeit automatisch verdeckt.');
+  setQuota();
 
   //try to fix mobile issue
   if(isMobile){
@@ -401,4 +405,15 @@ function lang_de () {
 
 function saveLang(language){
   localStorage.setItem("lang", language);
+}
+
+function setQuota (){
+  if(lang ==='de'){
+    $('#lost_quota_label').html(`<b>Quote: ${Math.round((lostGames/(wonGames+lostGames)*100)*100)/100}%</b>`);
+    $('#won_quota_label').html(`<b>Quote: ${Math.round((wonGames/(wonGames+lostGames)*100)*100)/100}%</b>`);
+  }
+  else {
+    $('#lost_quota_label').html(`<b>Quota: ${Math.round((lostGames/(wonGames+lostGames)*100)*100)/100}%</b>`);
+    $('#won_quota_label').html(`<b>Quota: ${Math.round((wonGames/(wonGames+lostGames)*100)*100)/100}%</b>`);
+  }
 }

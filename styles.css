@@ -14,7 +14,7 @@ body {
 .gameDiv {
 	position: absolute;
 	width: 820px;
-	height: 520px;
+	height: 620px;
 	z-index: 15;
 	top: 340px;
 	left: 30%;

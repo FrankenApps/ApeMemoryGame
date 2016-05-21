@@ -64,12 +64,12 @@ $(document).ready(function () {
   });
 
   // create the game field buttons
-  for (var i = 0; i < 40; i++) {
+  for (var i = 0; i < 48; i++) {
     var r = $('<div style="float: left" id="'+ "buttondiv"+ String(i) +'"><button style="width: 100px; height: 100px; background-color: #000000; color: #ffffff; font-size : 60px; border:none;" id="' + "gameButton" + String(i)+'"></button>' + '</div>');
     $("#playground").append(r);
   }
 
-  for (var f = 0; f < 40; f++) {
+  for (var f = 0; f < 48; f++) {
     $('#gameButton' + String(f)).prop('disabled', 'true');
   }
 
@@ -157,7 +157,7 @@ function generateNumbers () {
     i--;
   }
   }
-  for (var f = 0; f < 40; f++) {
+  for (var f = 0; f < 48; f++) {
     $('#gameButton' + String(f)).removeAttr('disabled');
   }
   initializeButtons();
@@ -166,7 +166,7 @@ function generateNumbers () {
 function initializeButtons () {
   usedButtonIndexes = [];
   for (var i = 0; i < buttonNumbers.length; i++) {
-    var number = Math.floor((Math.random() * 40));
+    var number = Math.floor((Math.random() * 48));
     if(usedButtonIndexes.indexOf(number) === -1){
       usedButtonIndexes[i] = number;
     }
@@ -178,12 +178,12 @@ function initializeButtons () {
     $('#gameButton' + String(usedButtonIndexes[i])).html(buttonNumbers[i]);
   }
   if(timeMode){
-  for (var c = 0; c < 40; c++) {
+  for (var c = 0; c < 48; c++) {
       $('#gameButton' + String(c)).prop('disabled', 'true');
   }
 }
 else {
-  for (var c = 0; c < 40; c++) {
+  for (var c = 0; c < 48; c++) {
     if (!$('#gameButton' + String(c)).text().trim().length) {
       $('#gameButton' + String(c)).prop('disabled', 'true');
     }
@@ -201,7 +201,7 @@ else {
 
 function hideDigits () {
   // Fix Issue #4
-  for (var c = 0; c < 40; c++) {
+  for (var c = 0; c < 48; c++) {
     if ($('#gameButton' + String(c)).text().trim().length) {
       $('#gameButton' + String(c)).removeAttr('disabled');
     }
@@ -229,7 +229,7 @@ function checkCorrectOrder (buttonDigit){
 function lost (){
   lostGames++;
   setQuota();
-  for (var i = 0; i < 40; i++) {
+  for (var i = 0; i < 48; i++) {
     $('#gameButton' + String(i)).css('background-color', '#000000');
     $('#gameButton' + String(i)).prop('disabled', 'true');
     $('#gameButton' + String(i)).css('font-size', '60px');
@@ -247,7 +247,7 @@ function lost (){
 function won () {
   wonGames++;
   setQuota();
-  for (var i = 0; i < 40; i++) {
+  for (var i = 0; i < 48; i++) {
     $('#gameButton' + String(i)).css('font-size', '60px');
   }
   if(lang === 'en'){
@@ -315,7 +315,7 @@ $('#click_mode_radio').removeAttr('disabled');
 }
 
 function restartGame () {
-  for (var g = 0; g < 40; g++) {
+  for (var g = 0; g < 48; g++) {
     $('#gameButton' + String(g)).css('background-color', '#000000');
     $('#gameButton' + String(g)).html('');
   }
@@ -324,7 +324,7 @@ function restartGame () {
 }
 
 function resetGame () {
-  for (var f = 0; f < 40; f++) {
+  for (var f = 0; f < 48; f++) {
     $('#gameButton' + String(f)).css('background-color', '#000000');
     $('#gameButton' + String(f)).html('');
   }

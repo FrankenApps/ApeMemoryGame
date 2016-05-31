@@ -14,7 +14,7 @@ Scientists at the university of kyoto created this as an experiment to test the 
 
 ## The average score of humans and chimps
 
-Here is the average score of humans and chimpanzees in this game, when played with 5 hidden digits (values are approximate, because I made the plot myself):
+Here is the average score of humans and chimpanzees in this game, when played with __5 hidden digits__ (values are approximate, because I made the plot myself):
 ![alt text][logo]
 [logo]:  http://s32.postimg.org/9fa1y21j9/chart.png "Chart not interactive"
 

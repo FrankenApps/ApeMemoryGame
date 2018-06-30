@@ -14,9 +14,4 @@ Scientists at the university of kyoto created this as an experiment to test the 
 
 ## The average score of humans and chimps
 
-Here is the average score of humans and chimpanzees in this game, when played with __5 hidden digits__ (values are approximate, because I made the plot myself):
-![alt text][logo]
-[logo]:  http://s32.postimg.org/9fa1y21j9/chart.png "Chart not interactive"
-
-You can also find the interactive version of that plot here:
-[Human vs Chimp Plot](https://www.meta-chart.com/share/chimp-vs-human-approximate-values-2 "interactive version")
+Typically chimpanzees are better in this, you can easily find exact figures online. Can you beat the apes? 
